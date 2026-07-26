@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global font scale — slightly smaller text across all pages */
+html {
+  font-size: 93%;
+}
+
+/* On mobile: push content above the fixed bottom nav */
+@media (max-width: 639px) {
+  body > #root {
+    padding-bottom: 88px;
+  }
+}
+
+/* Smooth page fade-in transition */
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+main, .page-content {
+  animation: page-enter 0.12s ease-out both;
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 270 65% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 65% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 65% 15%;
+
+    --primary: 270 65% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 40% 92%;
+    --secondary-foreground: 270 65% 25%;
+
+    --muted: 270 20% 95%;
+    --muted-foreground: 270 15% 50%;
+
+    --accent: 280 60% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 88%;
+    --input: 270 20% 88%;
+    --ring: 270 65% 25%;
+
+    --radius: 0.75rem;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(270, 65%, 25%), hsl(280, 60%, 40%));
+    --gradient-hero: linear-gradient(135deg, hsl(270, 65%, 30%), hsl(280, 60%, 50%));
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 270 50% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 270 45% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 270 45% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 280 60% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 30% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 270 30% 18%;
+    --muted-foreground: 270 10% 60%;
+
+    --accent: 280 60% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 30% 20%;
+    --input: 270 30% 20%;
+    --ring: 280 60% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* GPU acceleration for interactive elements */
+button, a, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth scrolling */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Prevent layout shifts during animations */
+nav, header {
+  will-change: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
