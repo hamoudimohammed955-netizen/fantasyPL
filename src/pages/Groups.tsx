@@ -145,8 +145,8 @@ export default function Groups() {
 
     } catch (error: any) {
       toast({
-        title: "Error",
-        description: error.message,
+        title: t('error'),
+        description: error?.message || t('somethingWentWrong'),
         variant: "destructive",
       });
     } finally {
