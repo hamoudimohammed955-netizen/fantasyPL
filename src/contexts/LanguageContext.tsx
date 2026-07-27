@@ -18,7 +18,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      <div dir="ltr">
+     <div dir={language === 'ar' ? 'rtl' : 'ltr'} lang={language}>
         {children}
       </div>
     </LanguageContext.Provider>
