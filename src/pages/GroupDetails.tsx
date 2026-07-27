@@ -202,10 +202,10 @@ export default function GroupDetailsPage() {
         .eq('group_id', group.id)
         .eq('user_id', userId);
       if (error) throw error;
-      toast({ title: t('youLeftGroup') });
+      toast({ title: t('groupLeftSuccessfully') });
       navigate('/groups');
     } catch (e: any) {
-      toast({ title: 'Error', description: e.message, variant: 'destructive' });
+      toast({ title: t('error'), description: e?.message || t('somethingWentWrong'), variant: 'destructive' });
     }
   };
 
