@@ -106,11 +106,6 @@ export const Navigation = memo(() => {
               );
             })}
           </div>
-
-          {/* iOS home indicator */}
-          <div className="flex justify-center pb-1.5">
-            <div className="w-28 h-1 rounded-full bg-gray-900/15" />
-          </div>
         </nav>
       </div>
     </>
