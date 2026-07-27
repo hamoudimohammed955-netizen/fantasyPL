@@ -154,7 +154,7 @@ export default function Profile() {
       const { data: { session } } = await supabase.auth.getSession();
       const uid = session?.user?.id || user?.id;
       if (!uid) {
-        toast({ title: 'Error', description: 'You must be signed in to update your profile.', variant: 'destructive' });
+        toast({ title: t('error'), description: t('profileUpdateRequired'), variant: 'destructive' });
         return;
       }
 
@@ -178,14 +178,14 @@ export default function Profile() {
       setIsEditingEmail(false);
 
       toast({
-        title: "Profile updated!",
+        title: t('profileUpdatedSuccessfully'),
       });
 
       loadProfile(uid);
     } catch (error: any) {
       toast({
-        title: "Error",
-        description: error.message,
+        title: t('error'),
+        description: error?.message || t('somethingWentWrong'),
         variant: "destructive",
       });
     } finally {
