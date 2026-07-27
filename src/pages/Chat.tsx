@@ -210,7 +210,7 @@ export default function Chat() {
     e.preventDefault();
     if (!newMessage.trim() || !group) return;
     if (!user) {
-      toast({ title: 'Error', description: 'You must be signed in to send messages.', variant: 'destructive' });
+      toast({ title: t('error'), description: t('notAuthenticated'), variant: 'destructive' });
       return;
     }
 
@@ -239,8 +239,8 @@ export default function Chat() {
       if (error) throw error;
     } catch (error: any) {
       toast({
-        title: "Error",
-        description: error.message,
+        title: t('error'),
+        description: error?.message || t('somethingWentWrong'),
         variant: "destructive",
       });
     } finally {
