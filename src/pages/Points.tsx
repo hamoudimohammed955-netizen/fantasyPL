@@ -98,7 +98,7 @@ export default function Points() {
     if (!roundPoints || String(roundPoints).trim() === '') { toast({ title: 'Error', description: t('yourPointsThisRound'), variant: 'destructive' }); return; }
     // Prevent re-scoring a finished round (client-side guard)
     if (scoredRounds.includes(round)) {
-      toast({ title: 'Info', description: t('roundAlreadyScored') || 'This round is already scored.', variant: 'destructive' });
+       toast({ title: t('info'), description: t('roundAlreadyScored') || 'This round is already scored.', variant: 'destructive' });
       return;
     }
     setLoading(true);
